@@ -265,6 +265,7 @@
             Controls.Add(btnCreate);
             Controls.Add(button1);
             Controls.Add(groupBox1);
+           
             Text = "Form1";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

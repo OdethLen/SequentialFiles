@@ -40,19 +40,23 @@
             label6 = new Label();
             label4 = new Label();
             label5 = new Label();
-            dgvDat = new DataGridView();
-            Name = new DataGridViewTextBoxColumn();
-            Alias = new DataGridViewTextBoxColumn();
-            Gender = new DataGridViewTextBoxColumn();
-            Age = new DataGridViewTextBoxColumn();
-            Quirk = new DataGridViewTextBoxColumn();
+            dgvData = new DataGridView();
             btnDelete = new Button();
             btnRead = new Button();
             btnAdd = new Button();
             btnCreate = new Button();
             button1 = new Button();
+            txtCoursesName = new TextBox();
+            label7 = new Label();
+            btnCreateCourses = new Button();
+            btnAddcourses = new Button();
+            Name = new DataGridViewTextBoxColumn();
+            Age = new DataGridViewTextBoxColumn();
+            Gender = new DataGridViewTextBoxColumn();
+            Year = new DataGridViewTextBoxColumn();
+            Course = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -163,46 +167,16 @@
             label5.TabIndex = 6;
             label5.Text = "Year";
             // 
-            // dgvDat
+            // dgvData
             // 
-            dgvDat.BackgroundColor = Color.LightBlue;
-            dgvDat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDat.Columns.AddRange(new DataGridViewColumn[] { Name, Alias, Gender, Age, Quirk });
-            dgvDat.Location = new Point(478, 40);
-            dgvDat.Name = "dgvDat";
-            dgvDat.ReadOnly = true;
-            dgvDat.Size = new Size(487, 268);
-            dgvDat.TabIndex = 16;
-            // 
-            // Name
-            // 
-            Name.HeaderText = "Name";
-            Name.Name = "Name";
-            Name.ReadOnly = true;
-            // 
-            // Alias
-            // 
-            Alias.HeaderText = "Alias";
-            Alias.Name = "Alias";
-            Alias.ReadOnly = true;
-            // 
-            // Gender
-            // 
-            Gender.HeaderText = "Gender";
-            Gender.Name = "Gender";
-            Gender.ReadOnly = true;
-            // 
-            // Age
-            // 
-            Age.HeaderText = "Age";
-            Age.Name = "Age";
-            Age.ReadOnly = true;
-            // 
-            // Quirk
-            // 
-            Quirk.HeaderText = "Quirk";
-            Quirk.Name = "Quirk";
-            Quirk.ReadOnly = true;
+            dgvData.BackgroundColor = Color.LightBlue;
+            dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { Name, Age, Gender, Year, Course });
+            dgvData.Location = new Point(478, 40);
+            dgvData.Name = "dgvData";
+            dgvData.ReadOnly = true;
+            dgvData.Size = new Size(487, 268);
+            dgvData.TabIndex = 16;
             // 
             // btnDelete
             // 
@@ -251,24 +225,95 @@
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
             // 
+            // txtCoursesName
+            // 
+            txtCoursesName.Location = new Point(131, 343);
+            txtCoursesName.Name = "txtCoursesName";
+            txtCoursesName.Size = new Size(168, 23);
+            txtCoursesName.TabIndex = 12;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(34, 343);
+            label7.Name = "label7";
+            label7.Size = new Size(88, 15);
+            label7.TabIndex = 12;
+            label7.Text = "Course's name ";
+            // 
+            // btnCreateCourses
+            // 
+            btnCreateCourses.Location = new Point(173, 384);
+            btnCreateCourses.Name = "btnCreateCourses";
+            btnCreateCourses.Size = new Size(96, 31);
+            btnCreateCourses.TabIndex = 24;
+            btnCreateCourses.Text = "Create";
+            btnCreateCourses.UseVisualStyleBackColor = true;
+            btnCreateCourses.Click += btnCreateCourses_Click;
+            // 
+            // btnAddcourses
+            // 
+            btnAddcourses.Location = new Point(50, 384);
+            btnAddcourses.Name = "btnAddcourses";
+            btnAddcourses.Size = new Size(96, 31);
+            btnAddcourses.TabIndex = 25;
+            btnAddcourses.Text = "Add";
+            btnAddcourses.UseVisualStyleBackColor = true;
+            btnAddcourses.Click += btnAddcourses_Click;
+            // 
+            // Name
+            // 
+            Name.HeaderText = "Name";
+            Name.Name = "Name";
+            Name.ReadOnly = true;
+            // 
+            // Age
+            // 
+            Age.HeaderText = "Age";
+            Age.Name = "Age";
+            Age.ReadOnly = true;
+            // 
+            // Gender
+            // 
+            Gender.HeaderText = "Gender";
+            Gender.Name = "Gender";
+            Gender.ReadOnly = true;
+            // 
+            // Year
+            // 
+            Year.HeaderText = "Year";
+            Year.Name = "Year";
+            Year.ReadOnly = true;
+            // 
+            // Course
+            // 
+            Course.HeaderText = "Course";
+            Course.Name = "Course";
+            Course.ReadOnly = true;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(988, 450);
+            Controls.Add(btnAddcourses);
+            Controls.Add(btnCreateCourses);
+            Controls.Add(label7);
+            Controls.Add(txtCoursesName);
             Controls.Add(btnDelete);
             Controls.Add(btnRead);
             Controls.Add(btnAdd);
             Controls.Add(btnCreate);
             Controls.Add(button1);
-            Controls.Add(dgvDat);
+            Controls.Add(dgvData);
             Controls.Add(groupBox1);
             
             Text = "Form2";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvData).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -285,16 +330,20 @@
         private Label label6;
         private Label label4;
         private Label label5;
-        private DataGridView dgvDat;
-        private DataGridViewTextBoxColumn Name;
-        private DataGridViewTextBoxColumn Alias;
-        private DataGridViewTextBoxColumn Gender;
-        private DataGridViewTextBoxColumn Age;
-        private DataGridViewTextBoxColumn Quirk;
+        private DataGridView dgvData;
         private Button btnDelete;
         private Button btnRead;
         private Button btnAdd;
         private Button btnCreate;
         private Button button1;
+        private TextBox txtCoursesName;
+        private Label label7;
+        private Button btnCreateCourses;
+        private Button btnAddcourses;
+        private DataGridViewTextBoxColumn Name;
+        private DataGridViewTextBoxColumn Age;
+        private DataGridViewTextBoxColumn Gender;
+        private DataGridViewTextBoxColumn Year;
+        private DataGridViewTextBoxColumn Course;
     }
 }
