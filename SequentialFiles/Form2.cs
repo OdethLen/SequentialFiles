@@ -63,6 +63,9 @@ namespace SequentialFiles
                     dgvData.Rows.Add(txtName.Text,txtAge.Text,txtGender.Text,txtYear.Text, selectedCourse);
 
                     txtName.Clear();
+                    txtAge.Clear();
+                    txtGender.Clear();
+                    txtYear.Clear();
                     txtCourse.Clear();
                 }
                 catch (Exception ex)
@@ -80,6 +83,30 @@ namespace SequentialFiles
             student.Gender = txtGender.Text;
             student.Year = txtYear.Text;
             student.Course = txtCourse.Text;
+
+            string fileName;
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter= "Text files |*.txt";
+            saveFileDialog.Title = "Save a Text File";
+            if (saveFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            fileName = saveFileDialog.FileName;
+            if (fileName!=null)
+            {
+                StreamWriter sw = new StreamWriter(fileName);
+                foreach (DataGridViewRow row in dgvData.Rows)
+                {
+                    if (row.IsNewRow) continue;
+                    var values = row.Cells.OfType<DataGridViewCell>()
+                                          .Select(cell => cell.Value?.ToString() ?? string.Empty)
+                                          .ToArray();
+
+                    sw.WriteLine(string.Join(",", values));
+                    sw.Flush();
+                    sw.Close();
+                }
+            }
 
         }
 
