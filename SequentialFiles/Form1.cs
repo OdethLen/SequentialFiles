@@ -22,6 +22,13 @@ namespace SequentialFiles
             hero.Age = txtAge.Text;
             hero.Quirk = txtQuirk.Text;
 
+
+            if (dgvData.Rows.Count==1) 
+            {
+                MessageBox.Show("There's no data to export.","No data");
+                return;
+            }
+
             String fileName;
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Text files |*.txt";

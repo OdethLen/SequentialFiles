@@ -190,6 +190,7 @@
             dgvData.Location = new Point(450, 23);
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
+            dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvData.Size = new Size(487, 268);
             dgvData.TabIndex = 15;
             // 
@@ -265,7 +266,7 @@
             Controls.Add(btnCreate);
             Controls.Add(button1);
             Controls.Add(groupBox1);
-           
+          
             Text = "Form1";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
