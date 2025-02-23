@@ -80,25 +80,7 @@ namespace SequentialFiles
             }
 
             MessageBox.Show("Data saved successfully.");
-
-            //Person person = new Person();
-            //person.Name = txtName.Text;
-            //person.Age = txtAge.Text;
-            //person.Id = txtId.Text;
-
-            //if (dgvData.Rows.Count == 0)
-            //{
-            //    MessageBox.Show("There's no data to export.", "No data");
-            //    return;
-            //}
-
-            //string fileName;
-            //SaveFileDialog saveFileDialog = new SaveFileDialog();
-            //saveFileDialog.Filter = "text file |*.txt";
-            //saveFileDialog.Title = "Save text file";
-            //if (saveFileDialog.ShowDialog() != DialogResult.OK)
-            //    return;
-            //fileName = saveFileDialog.FileName;
+           
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

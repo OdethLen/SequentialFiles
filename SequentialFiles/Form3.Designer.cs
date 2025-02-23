@@ -118,9 +118,9 @@
             dgvData.BackgroundColor = Color.Pink;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvData.Columns.AddRange(new DataGridViewColumn[] { Name, Age, Id });
-            dgvData.Location = new Point(498, 76);
+            dgvData.Location = new Point(498, 39);
             dgvData.Name = "dgvData";
-            dgvData.Size = new Size(343, 204);
+            dgvData.Size = new Size(343, 241);
             dgvData.TabIndex = 7;
             // 
             // Name
