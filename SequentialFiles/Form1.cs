@@ -133,8 +133,6 @@ namespace SequentialFiles
             {
                 // Dividir cada línea por la coma (CSV)
                 string[] values = line.Split(',');
-
-                // Agregar los valores a una nueva fila del DataGridView
                 dgvData.Rows.Add(values);
             }
 
@@ -144,7 +142,7 @@ namespace SequentialFiles
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvData.SelectedRows.Count>0)
+            if (dgvData.SelectedRows.Count > 0)
             {
                 // Asegurarse de que no intentamos eliminar la fila nueva vacía
                 if (!dgvData.Rows[dgvData.SelectedRows[0].Index].IsNewRow)
@@ -163,11 +161,14 @@ namespace SequentialFiles
             {
                 MessageBox.Show("No row selected to delete.");
             }
+
+
+
         }
 
 
 
 
-        }
+    }
     }
 

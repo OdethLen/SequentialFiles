@@ -31,8 +31,15 @@ namespace SequentialFiles
 
         private void btnSequentialIndexed_Click(object sender, EventArgs e)
         {
-            Form form= new Form2();
-            form.Show(); 
+            Form form = new Form2();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnDirect_Click(object sender, EventArgs e)
+        {
+            Form form = new Form3();
+            form.Show();
             this.Hide();
         }
     }

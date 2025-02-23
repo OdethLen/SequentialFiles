@@ -21,7 +21,7 @@ namespace SequentialFiles
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-           
+
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 MessageBox.Show("Enter a name.");
@@ -60,7 +60,7 @@ namespace SequentialFiles
                     }
 
                     string selectedCourse = carreras[courseIndex - 1]; // Obtener la carrera correspondiente al número ingresado
-                    dgvData.Rows.Add(txtName.Text,txtAge.Text,txtGender.Text,txtYear.Text, selectedCourse);
+                    dgvData.Rows.Add(txtName.Text, txtAge.Text, txtGender.Text, txtYear.Text, selectedCourse);
 
                     txtName.Clear();
                     txtAge.Clear();
@@ -84,15 +84,21 @@ namespace SequentialFiles
             student.Year = txtYear.Text;
             student.Course = txtCourse.Text;
 
+            if (dgvData.Rows.Count == 1)
+            {
+                MessageBox.Show("There's no data to export.", "No data");
+                return;
+            }
+
             string fileName;
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter= "Text files |*.txt";
+            saveFileDialog.Filter = "Text files |*.txt";
             saveFileDialog.Title = "Save a Text File";
             if (saveFileDialog.ShowDialog() != DialogResult.OK)
                 return;
 
             fileName = saveFileDialog.FileName;
-            if (fileName!=null)
+            if (fileName != null)
             {
                 StreamWriter sw = new StreamWriter(fileName);
                 foreach (DataGridViewRow row in dgvData.Rows)
@@ -160,5 +166,49 @@ namespace SequentialFiles
             }
         }
 
+        private void btnRead_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "txt files |*.txt";
+            openFileDialog.Title = "Open txt file";
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            string filePath = openFileDialog.FileName;
+            string[] lines = File.ReadAllLines(filePath);
+            dgvData.Rows.Clear();
+
+            foreach (string line in lines)
+            {
+
+                string[] values = line.Split(',');
+                dgvData.Rows.Add(values);
+            }
+            MessageBox.Show("Data loaded successfully into DataGridView.");
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvData.SelectedRows.Count > 0)
+            {
+                // Asegurarse de que no intentamos eliminar la fila nueva vacía
+                if (!dgvData.Rows[dgvData.SelectedRows[0].Index].IsNewRow)
+                {
+                    // Eliminar la fila seleccionada
+                    dgvData.Rows.RemoveAt(dgvData.SelectedRows[0].Index);
+                    MessageBox.Show("Selected row deleted successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("Cannot delete the new empty row.");
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("No row selected to delete.");
+            }
+        }
     }
 }

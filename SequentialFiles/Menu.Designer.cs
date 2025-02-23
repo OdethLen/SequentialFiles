@@ -64,6 +64,7 @@
             btnDirect.TabIndex = 2;
             btnDirect.Text = "Direct";
             btnDirect.UseVisualStyleBackColor = true;
+            btnDirect.Click += btnDirect_Click;
             // 
             // Menu
             // 
