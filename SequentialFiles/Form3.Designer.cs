@@ -40,7 +40,7 @@
             Age = new DataGridViewTextBoxColumn();
             Id = new DataGridViewTextBoxColumn();
             btnAdd = new Button();
-            button2 = new Button();
+            btnCreate = new Button();
             btnSearch = new Button();
             txtSearch = new TextBox();
             groupBox1.SuspendLayout();
@@ -116,6 +116,7 @@
             // 
             // dgvData
             // 
+            dgvData.BackgroundColor = Color.Pink;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvData.Columns.AddRange(new DataGridViewColumn[] { Name, Age, Id });
             dgvData.Location = new Point(498, 76);
@@ -140,6 +141,7 @@
             // 
             // btnAdd
             // 
+            btnAdd.Font = new Font("Yu Gothic UI", 9.75F);
             btnAdd.Location = new Point(345, 99);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(94, 31);
@@ -148,23 +150,27 @@
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
-            // button2
+            // btnCreate
             // 
-            button2.Location = new Point(345, 137);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 31);
-            button2.TabIndex = 9;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            btnCreate.Font = new Font("Yu Gothic UI", 9.75F);
+            btnCreate.Location = new Point(345, 137);
+            btnCreate.Name = "btnCreate";
+            btnCreate.Size = new Size(94, 31);
+            btnCreate.TabIndex = 9;
+            btnCreate.Text = "Create";
+            btnCreate.UseVisualStyleBackColor = true;
+            btnCreate.Click += btnCreate_Click;
             // 
             // btnSearch
             // 
+            btnSearch.Font = new Font("Yu Gothic UI", 9.75F);
             btnSearch.Location = new Point(279, 39);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(94, 31);
             btnSearch.TabIndex = 10;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // txtSearch
             // 
@@ -172,7 +178,6 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(210, 23);
             txtSearch.TabIndex = 6;
-            txtSearch.TextAlign = HorizontalAlignment.Right;
             // 
             // Form3
             // 
@@ -181,7 +186,7 @@
             ClientSize = new Size(959, 346);
             Controls.Add(txtSearch);
             Controls.Add(btnSearch);
-            Controls.Add(button2);
+            Controls.Add(btnCreate);
             Controls.Add(btnAdd);
             Controls.Add(dgvData);
             Controls.Add(groupBox1);
@@ -206,7 +211,7 @@
         private GroupBox groupBox1;
         private DataGridView dgvData;
         private Button btnAdd;
-        private Button button2;
+        private Button btnCreate;
         private DataGridViewTextBoxColumn Name;
         private DataGridViewTextBoxColumn Age;
         private DataGridViewTextBoxColumn Id;
