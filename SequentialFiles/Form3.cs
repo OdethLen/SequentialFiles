@@ -25,6 +25,7 @@ namespace SequentialFiles
             if (string.IsNullOrWhiteSpace(txtName.Text) ||
                 string.IsNullOrWhiteSpace(txtAge.Text) ||
                 string.IsNullOrWhiteSpace(txtId.Text))
+
             {
                 MessageBox.Show("All fields are required.");
                 return;
@@ -52,7 +53,9 @@ namespace SequentialFiles
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (dgvData.Rows.Count == 0)
+
+
+            if (dgvData.Rows.Count == 1)
             {
                 MessageBox.Show("There's no data to export.", "No data");
                 return;
@@ -80,7 +83,7 @@ namespace SequentialFiles
             }
 
             MessageBox.Show("Data saved successfully.");
-           
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -115,7 +118,7 @@ namespace SequentialFiles
                 }
             }
 
-            if (tempDataIndex.TryGetValue(nameToSearch, out string foundData))
+            if (tempDataIndex.TryGetValue(nameToSearch, out string? foundData))
             {
                 var parts = foundData.Split('|');
                 dgvData.Rows.Clear();
@@ -124,6 +127,55 @@ namespace SequentialFiles
             else
             {
                 MessageBox.Show("No matches found.");
+            }
+        }
+
+        private void btnRead_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text files |*.txt";
+            openFileDialog.Title = "Select a file to search";
+
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+            string filePath = openFileDialog.FileName;
+            dgvData.Rows.Clear();
+
+            try
+            {
+                var lines = File.ReadAllLines(filePath);
+                foreach (var line in lines)
+                {
+                    var parts = line.Split('|');
+                    if (parts.Length == 3)
+                    {
+                        dgvData.Rows.Add(parts[0], parts[1], parts[2]);
+                    }
+                }
+
+                MessageBox.Show("Data loaded successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error reading file.");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvData.SelectedRows.Count > 0)
+            {
+                // Asegurarse de que no intentamos eliminar la fila nueva vacía
+                if (!dgvData.Rows[dgvData.SelectedRows[0].Index].IsNewRow)
+                {
+                    // Eliminar la fila seleccionada
+                    dgvData.Rows.RemoveAt(dgvData.SelectedRows[0].Index);
+                    MessageBox.Show("Selected row deleted successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("Cannot delete the new empty row.");
+                }
             }
         }
     }

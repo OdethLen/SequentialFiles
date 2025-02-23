@@ -43,7 +43,8 @@
             btnCreate = new Button();
             btnSearch = new Button();
             txtSearch = new TextBox();
-            label4 = new Label();
+            btnRead = new Button();
+            btnDelete = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             SuspendLayout();
@@ -51,7 +52,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(17, 38);
+            label1.Location = new Point(28, 38);
             label1.Name = "label1";
             label1.Size = new Size(43, 17);
             label1.TabIndex = 0;
@@ -60,7 +61,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(17, 111);
+            label2.Location = new Point(40, 83);
             label2.Name = "label2";
             label2.Size = new Size(31, 17);
             label2.TabIndex = 1;
@@ -69,7 +70,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(28, 145);
+            label3.Location = new Point(52, 116);
             label3.Name = "label3";
             label3.Size = new Size(19, 17);
             label3.TabIndex = 2;
@@ -77,7 +78,6 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(txtId);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtAge);
@@ -88,27 +88,27 @@
             groupBox1.Location = new Point(33, 99);
             groupBox1.Name = "groupBox1";
             groupBox1.RightToLeft = RightToLeft.Yes;
-            groupBox1.Size = new Size(272, 192);
+            groupBox1.Size = new Size(272, 171);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             // 
             // txtId
             // 
-            txtId.Location = new Point(70, 145);
+            txtId.Location = new Point(90, 116);
             txtId.Name = "txtId";
             txtId.Size = new Size(157, 25);
             txtId.TabIndex = 13;
             // 
             // txtAge
             // 
-            txtAge.Location = new Point(70, 112);
+            txtAge.Location = new Point(90, 83);
             txtAge.Name = "txtAge";
             txtAge.Size = new Size(157, 25);
             txtAge.TabIndex = 12;
             // 
             // txtName
             // 
-            txtName.Location = new Point(70, 44);
+            txtName.Location = new Point(90, 44);
             txtName.Name = "txtName";
             txtName.Size = new Size(157, 25);
             txtName.TabIndex = 11;
@@ -178,27 +178,41 @@
             txtSearch.Size = new Size(210, 23);
             txtSearch.TabIndex = 6;
             // 
-            // label4
+            // btnRead
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(17, 77);
-            label4.Name = "label4";
-            label4.Size = new Size(31, 17);
-            label4.TabIndex = 14;
-            label4.Text = "Age";
+            btnRead.Font = new Font("Yu Gothic UI", 9.75F);
+            btnRead.Location = new Point(345, 176);
+            btnRead.Name = "btnRead";
+            btnRead.Size = new Size(94, 31);
+            btnRead.TabIndex = 11;
+            btnRead.Text = "Read";
+            btnRead.UseVisualStyleBackColor = true;
+            btnRead.Click += btnRead_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Font = new Font("Yu Gothic UI", 9.75F);
+            btnDelete.Location = new Point(345, 213);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(94, 31);
+            btnDelete.TabIndex = 12;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(959, 346);
+            Controls.Add(btnDelete);
+            Controls.Add(btnRead);
             Controls.Add(txtSearch);
             Controls.Add(btnSearch);
             Controls.Add(btnCreate);
             Controls.Add(btnAdd);
             Controls.Add(dgvData);
             Controls.Add(groupBox1);
-            Name = "Form3";
             Text = "Form3";
             Load += Form3_Load;
             groupBox1.ResumeLayout(false);
@@ -217,14 +231,15 @@
         private DataGridView dgvData;
         private Button btnAdd;
         private Button btnCreate;
-        private DataGridViewTextBoxColumn Name;
-        private DataGridViewTextBoxColumn Age;
-        private DataGridViewTextBoxColumn Id;
         private Button btnSearch;
         private TextBox txtSearch;
         private TextBox txtName;
         private TextBox txtAge;
         private TextBox txtId;
-        private Label label4;
+        private Button btnRead;
+        private Button btnDelete;
+        private DataGridViewTextBoxColumn Name;
+        private DataGridViewTextBoxColumn Age;
+        private DataGridViewTextBoxColumn Id;
     }
 }
